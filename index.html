@@ -44,6 +44,7 @@
       margin-bottom: 5.75rem;
       text-align: center;
       width: 100%;
+      overflow: hidden;
     }
 
     /* Contact heading + form share a centred column */
@@ -170,15 +171,17 @@
     @media (max-width: 600px) {
       main {
         padding-top: 4rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
 
       h1 {
         margin-bottom: 4rem;
-        font-size: clamp(1.4rem, 7vw, 6.5rem);
+        font-size: 7.5vw !important;
         white-space: nowrap;
+        text-align: center;
       }
 
-      /* On mobile centre the heading to match the centred form */
       h2 {
         text-align: center;
       }
