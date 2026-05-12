@@ -50,13 +50,39 @@
       white-space: nowrap;
     }
 
-    /* Wrap contact block in a styled container with background color */
+    /* Wrap contact block in a styled container with background color and funky shape */
     .contact-container {
+      position: relative; /* for pseudo-element positioning */
       background-color: #edeff1;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem; /* optional spacing below */
+      margin-bottom: 2rem;
+      overflow: hidden; /* contain pseudo-element */
+    }
+
+    /* Add the funky offset diamond shape */
+    .contact-container::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #c0c4c8; /* contrast color */
+      top: 70%;
+      right: -30px;
+      transform: translate(50%, -50%) rotate(45deg);
+      opacity: 0.8;
+      z-index: -1; /* behind content */
+    }
+
+    /* Adjust shape size for mobile */
+    @media (max-width: 600px) {
+      .contact-container::after {
+        width: 70px;
+        height: 70px;
+        top: 80%;
+        right: -20px;
+      }
     }
 
     /* Contact heading + form share a centred column, now inside container */
@@ -197,10 +223,12 @@
         text-align: center;
       }
 
-      /* Style adjustments for mobile if needed */
-      .contact-container {
-        padding: 1.5rem; /* slightly less padding for mobile */
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* softer shadow */
+      /* Adjust the shape size for mobile */
+      .contact-container::after {
+        width: 70px;
+        height: 70px;
+        top: 80%;
+        right: -20px;
       }
 
       .contact-block {
@@ -219,7 +247,7 @@
   <main>
     <h1>William Baker</h1>
 
-    <!-- Wrap contact block in a styled container with background color -->
+    <!-- Wrap contact block in a styled container with background color and funky shape -->
     <div class="contact-container">
       <div class="contact-block">
         <h2>Contact</h2>
@@ -278,8 +306,7 @@
 
     function fitTitle() {
       const h1 = document.querySelector('h1');
-      // Use window.innerWidth to avoid any scrollbar/layout issues
-      const padding = 2 * 20; // 1.25rem * 2 sides, ~20px each on mobile
+      const padding = 2 * 20;
       const available = Math.min(window.innerWidth, 720) - padding;
 
       const canvas = document.createElement('canvas');
@@ -301,7 +328,6 @@
       h1.style.fontSize = best + 'px';
     }
 
-    // Wait for fonts before measuring
     document.fonts.ready.then(() => {
       fitTitle();
       window.addEventListener('resize', fitTitle);
