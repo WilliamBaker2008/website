@@ -37,14 +37,13 @@
     h1 {
       font-family: 'Mulish', sans-serif;
       font-weight: 800;
-      font-size: clamp(2rem, 11vw, 6.5rem);
       color: #243239;
       line-height: 0.95;
       letter-spacing: 0.01em;
       margin-bottom: 5.75rem;
       text-align: center;
       width: 100%;
-      overflow: hidden;
+      white-space: nowrap;
     }
 
     /* Contact heading + form share a centred column */
@@ -177,7 +176,6 @@
 
       h1 {
         margin-bottom: 4rem;
-        font-size: 5.8vw !important;
         white-space: nowrap;
         text-align: center;
       }
@@ -252,6 +250,23 @@
   <script>
     document.getElementById('year').textContent =
       new Date().getFullYear();
+
+    // Fit h1 to exactly fill one line
+    function fitTitle() {
+      const h1 = document.querySelector('h1');
+      const container = h1.parentElement;
+      const available = container.clientWidth;
+      let size = 16;
+      h1.style.fontSize = size + 'px';
+      while (h1.scrollWidth <= available && size < 300) {
+        size++;
+        h1.style.fontSize = size + 'px';
+      }
+      h1.style.fontSize = (size - 1) + 'px';
+    }
+
+    fitTitle();
+    window.addEventListener('resize', fitTitle);
 
     const form = document.getElementById('form');
     const success = document.getElementById('success');
