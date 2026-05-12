@@ -252,8 +252,12 @@
 
     function fitTitle() {
       const h1 = document.querySelector('h1');
+      const parent = h1.parentElement;
+      const style = getComputedStyle(parent);
+      const available = parent.clientWidth
+        - parseFloat(style.paddingLeft)
+        - parseFloat(style.paddingRight);
       h1.style.fontSize = '16px';
-      const available = h1.parentElement.clientWidth;
       let lo = 16, hi = 400, best = 16;
       while (lo <= hi) {
         const mid = Math.floor((lo + hi) / 2);
