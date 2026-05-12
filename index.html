@@ -50,42 +50,7 @@
       white-space: nowrap;
     }
 
-    /* Wrap contact block in a styled container with background color and funky shape */
-    .contact-container {
-      position: relative; /* for pseudo-element positioning */
-      background-color: #edeff1;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem;
-      overflow: hidden; /* contain pseudo-element */
-    }
-
-    /* Add the funky offset diamond shape */
-    .contact-container::after {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: #c0c4c8; /* contrast color */
-      top: 70%;
-      right: -30px;
-      transform: translate(50%, -50%) rotate(45deg);
-      opacity: 0.8;
-      z-index: -1; /* behind content */
-    }
-
-    /* Adjust shape size for mobile */
-    @media (max-width: 600px) {
-      .contact-container::after {
-        width: 70px;
-        height: 70px;
-        top: 80%;
-        right: -20px;
-      }
-    }
-
-    /* Contact heading + form share a centred column, now inside container */
+    /* Contact heading + form share a centred column */
     .contact-block {
       max-width: 550px;
       margin-left: auto;
@@ -223,21 +188,13 @@
         text-align: center;
       }
 
-      /* Adjust the shape size for mobile */
-      .contact-container::after {
-        width: 70px;
-        height: 70px;
-        top: 80%;
-        right: -20px;
-      }
-
       .contact-block {
         max-width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 2rem; /* optional, add space if needed */
       }
 
       form {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; /* reduce space below form if needed */
       }
     }
   </style>
@@ -247,52 +204,50 @@
   <main>
     <h1>William Baker</h1>
 
-    <!-- Wrap contact block in a styled container with background color and funky shape -->
-    <div class="contact-container">
-      <div class="contact-block">
-        <h2>Contact</h2>
+    <!-- h2 and form wrapped together so they share the same left edge -->
+    <div class="contact-block">
+      <h2>Contact</h2>
 
-        <form id="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your name"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Tell me about your project"
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit">
-            Send <span class="arrow">→</span>
-          </button>
-        </form>
-
-        <div class="success" id="success">
-          <p>Message sent</p>
+      <form id="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
         </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell me about your project"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit">
+          Send <span class="arrow">→</span>
+        </button>
+      </form>
+
+      <div class="success" id="success">
+        <p>Message sent</p>
       </div>
     </div>
   </main>
@@ -306,7 +261,8 @@
 
     function fitTitle() {
       const h1 = document.querySelector('h1');
-      const padding = 2 * 20;
+      // Use window.innerWidth to avoid any scrollbar/layout issues
+      const padding = 2 * 20; // 1.25rem * 2 sides, ~20px each on mobile
       const available = Math.min(window.innerWidth, 720) - padding;
 
       const canvas = document.createElement('canvas');
@@ -328,6 +284,7 @@
       h1.style.fontSize = best + 'px';
     }
 
+    // Wait for fonts before measuring
     document.fonts.ready.then(() => {
       fitTitle();
       window.addEventListener('resize', fitTitle);
