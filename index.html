@@ -37,7 +37,6 @@
     h1 {
       font-family: 'Mulish', sans-serif;
       font-weight: 800;
-      /* Use vw-based sizing so it always fits on one line */
       font-size: clamp(2rem, 11vw, 6.5rem);
       color: #243239;
       line-height: 0.95;
@@ -45,8 +44,6 @@
       margin-bottom: 5.75rem;
       text-align: center;
       width: 100%;
-      /* Allow wrapping on very small screens as a fallback */
-      white-space: nowrap;
     }
 
     /* Contact heading + form share a centred column */
@@ -177,13 +174,13 @@
 
       h1 {
         margin-bottom: 4rem;
-        /* On narrow screens allow the font to shrink further */
-        font-size: clamp(1.6rem, 13vw, 6.5rem);
+        font-size: clamp(1.4rem, 7vw, 6.5rem);
+        white-space: nowrap;
       }
 
       /* On mobile centre the heading to match the centred form */
       h2 {
-        text-align: left;
+        text-align: center;
       }
 
       .contact-block {
