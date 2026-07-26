@@ -1,0 +1,169 @@
+:root{
+  --paper:#E6E4DD;
+  --field:rgba(255,255,255,.38);
+  --ink:#1C1B18;
+  --muted:#6E6C63;
+  --faint:#9A988E;
+  --line:#D0CDC4;
+  --accent:#465A6E;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Hanken Grotesk",system-ui,sans-serif;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* grain */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.7;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+/* ---- header ---------------------------------------------------- */
+.site-header{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px clamp(22px,5vw,44px);
+  border-bottom:1px solid var(--line);
+}
+.wordmark{
+  font-family:"Fraunces",serif;
+  font-optical-sizing:auto;
+  font-weight:500;
+  font-size:clamp(19px,4.5vw,24px);
+  letter-spacing:-.01em;
+  color:var(--ink);
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+/* buttons — the only motion is a small lift on hover */
+.btn{
+  font-family:"Hanken Grotesk",sans-serif;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  padding:9px 18px;
+  border-radius:999px;
+  white-space:nowrap;
+  transition:transform .2s ease;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 2px var(--paper),0 0 0 3.5px var(--accent)}
+.btn-solid{background:var(--accent);color:var(--paper)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+
+/* ---- main ------------------------------------------------------ */
+main{
+  position:relative;
+  z-index:1;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:56px 24px;
+}
+.container{width:100%;max-width:430px}
+
+/* ---- link list ------------------------------------------------- */
+.links{list-style:none;border-top:1px solid var(--line)}
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  text-decoration:none;
+  color:var(--ink);
+  padding:17px 4px;
+  border-bottom:1px solid var(--line);
+  transition:transform .2s ease;
+}
+.row:hover{transform:translateY(-2px)}
+.row:focus-visible{outline:none;box-shadow:0 0 0 2px var(--paper),0 0 0 3.5px var(--accent);border-radius:6px}
+.platform{font-size:17px;font-weight:500;letter-spacing:-.005em}
+.handle{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;
+  color:var(--faint);
+  white-space:nowrap;
+}
+
+/* ---- contact form ---------------------------------------------- */
+.page-title{
+  font-family:"Fraunces",serif;
+  font-optical-sizing:auto;
+  font-weight:500;
+  font-size:clamp(32px,7vw,42px);
+  letter-spacing:-.02em;
+  margin-bottom:10px;
+}
+.page-sub{color:var(--muted);font-size:15px;margin-bottom:34px}
+.form{display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.field input,.field textarea{
+  font-family:"Hanken Grotesk",sans-serif;
+  font-size:15px;
+  color:var(--ink);
+  background:var(--field);
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:13px 14px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.field textarea{resize:vertical;min-height:130px}
+.field input:focus,.field textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(70,90,110,.12);
+}
+.form .btn-solid{align-self:flex-start;padding:12px 26px;font-size:15px;margin-top:4px}
+
+/* ---- footer ---------------------------------------------------- */
+footer{
+  position:relative;
+  z-index:1;
+  padding:22px 24px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  letter-spacing:.05em;
+  color:var(--faint);
+}
+
+@media (max-width:420px){
+  .platform{font-size:16px}
+  .handle{font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
