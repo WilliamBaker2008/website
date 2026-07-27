@@ -15,9 +15,17 @@
 <body>
 
   <header class="site-header">
-    <span aria-hidden="true"></span>
+    <span class="header-spacer" aria-hidden="true"></span>
     <a class="wordmark" href="/">William Baker</a>
-    <a class="nav-link" href="/contact">Contact</a>
+    <div class="header-right">
+      <a class="nav-link" href="/contact">Contact</a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="/contact">Contact</a>
+    </nav>
   </header>
 
   <main>
@@ -58,6 +66,22 @@
   </main>
 
   <footer>&copy; 2026 William Baker</footer>
+
+<script>
+(function(){
+  var t=document.querySelector('.menu-toggle');
+  var m=document.getElementById('mobile-menu');
+  if(!t||!m)return;
+  function close(){document.body.classList.remove('menu-open');t.setAttribute('aria-expanded','false');m.setAttribute('aria-hidden','true');}
+  t.addEventListener('click',function(){
+    var open=document.body.classList.toggle('menu-open');
+    t.setAttribute('aria-expanded',open);
+    m.setAttribute('aria-hidden',!open);
+  });
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 
 </body>
 </html>
