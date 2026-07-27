@@ -3,40 +3,57 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact | William Baker</title>
-<meta name="description" content="Contact William Baker" />
+<title>William Baker</title>
+<meta name="description" content="William Baker" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css" />
-<link rel="icon" type="image/png" href="../apple-touch-icon.png" />
-<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 <body>
 
-  <header class="site-header centered">
-    <a class="wordmark" href="/">Contact | William Baker</a>
+  <header class="site-header">
+    <span aria-hidden="true"></span>
+    <a class="wordmark" href="/">William Baker</a>
+    <a class="nav-link" href="/contact">Contact</a>
   </header>
 
   <main>
     <div class="container">
-      <h1 class="visually-hidden">Contact</h1>
-      <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <!-- Replace YOUR_FORM_ID above with your Formspree form ID to receive messages -->
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button class="send" type="submit">Send</button>
-      </form>
+      <ul class="links">
+        <li>
+          <a class="row" href="https://www.instagram.com/wil.lbaker/" target="_blank" rel="noopener">
+            <span class="platform">Instagram</span>
+            <span class="handle">@wil.lbaker</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://www.youtube.com/@wil.lbaker" target="_blank" rel="noopener">
+            <span class="platform">YouTube</span>
+            <span class="handle">@wil.lbaker</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://www.tiktok.com/@willbaker2008" target="_blank" rel="noopener">
+            <span class="platform">TikTok</span>
+            <span class="handle">@willbaker2008</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://x.com/willbaker" target="_blank" rel="noopener">
+            <span class="platform">Twitter</span>
+            <span class="handle">@willbaker</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://www.facebook.com/willbaker08" target="_blank" rel="noopener">
+            <span class="platform">Facebook</span>
+            <span class="handle">willbaker08</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </main>
 
