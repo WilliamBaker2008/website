@@ -154,13 +154,13 @@ main{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.05em;
-  font-size:clamp(24px,5vw,32px);
-  margin-bottom:22px;
+  font-size:clamp(21px,4.5vw,28px);
+  margin-bottom:18px;
 }
-.form{display:flex;flex-direction:column;gap:18px}
+.form{display:flex;flex-direction:column;gap:16px}
 .field{display:flex;flex-direction:column;gap:9px}
 .field label{
-  font-size:12px;
+  font-size:11px;
   font-weight:700;
   letter-spacing:.09em;
   text-transform:uppercase;
@@ -168,16 +168,16 @@ main{
 }
 .field input,.field textarea{
   font-family:"Space Grotesk",sans-serif;
-  font-size:15px;
+  font-size:14px;
   font-weight:500;
   color:var(--ink);
   background:var(--field);
   border:1px solid var(--line);
   border-radius:10px;
-  padding:13px 15px;
+  padding:11px 13px;
   transition:border-color .2s ease,box-shadow .2s ease;
 }
-.field textarea{resize:vertical;min-height:140px}
+.field textarea{resize:vertical;min-height:120px}
 .field input:focus,.field textarea:focus{
   outline:none;
   border-color:var(--accent);
@@ -192,7 +192,7 @@ main{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.12em;
-  font-size:15px;
+  font-size:14px;
   cursor:pointer;
   transition:transform .2s ease;
 }
