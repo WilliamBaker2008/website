@@ -154,10 +154,10 @@ main{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.05em;
-  font-size:clamp(27px,6vw,38px);
+  font-size:clamp(24px,5vw,32px);
   margin-bottom:22px;
 }
-.form{display:flex;flex-direction:column;gap:22px}
+.form{display:flex;flex-direction:column;gap:18px}
 .field{display:flex;flex-direction:column;gap:9px}
 .field label{
   font-size:12px;
@@ -168,16 +168,16 @@ main{
 }
 .field input,.field textarea{
   font-family:"Space Grotesk",sans-serif;
-  font-size:16px;
+  font-size:15px;
   font-weight:500;
   color:var(--ink);
   background:var(--field);
   border:1px solid var(--line);
   border-radius:10px;
-  padding:15px 16px;
+  padding:13px 15px;
   transition:border-color .2s ease,box-shadow .2s ease;
 }
-.field textarea{resize:vertical;min-height:160px}
+.field textarea{resize:vertical;min-height:140px}
 .field input:focus,.field textarea:focus{
   outline:none;
   border-color:var(--accent);
@@ -192,7 +192,7 @@ main{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.12em;
-  font-size:17px;
+  font-size:15px;
   cursor:pointer;
   transition:transform .2s ease;
 }
