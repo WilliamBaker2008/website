@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Baker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;800&family=Nunito:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      background: #ffffff;
+      color: #243239;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 2rem 2.25rem;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'Mulish', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.8rem, 12vw, 6.5rem);
+      color: #243239;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      margin-bottom: 5.75rem;
+      text-align: center;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    /* For the contact section title */
+    h2 {
+      font-family: 'Mulish', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.9rem, 6vw, 3.2rem);
+      color: #319296;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.9rem;
+      /* Align left and match form width */
+      text-align: left;
+      /* Optional: add left margin for better alignment if needed */
+      margin-left: 45px;
+    }
+
+    /* Make the form narrower and aligned left */
+    form {
+      margin-top: 0.4rem;
+      max-width: 550px; /* Slightly less wide */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Optional: ensure h2 follows the form's width and alignment */
+    /* Wrap the h2 in a container if you want to control its position precisely, but here it's aligned to left with margin 0 */
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: #888;
+      margin-bottom: 0.4rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #d0d4d6;
+      padding: 0.6rem 0;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: #243239;
+      outline: none;
+      border-radius: 0;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-bottom-color: #319296;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #bbb;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 100px;
+      line-height: 1.7;
+      overflow: hidden;
+    }
+
+    button {
+      margin-top: 2rem;
+      background: none;
+      border: none;
+      font-family: 'Mulish', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: #243239;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.2s;
+    }
+
+    button:hover {
+      color: #319296;
+    }
+
+    button .arrow {
+      transition: transform 0.2s;
+    }
+
+    button:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .success {
+      display: none;
+      padding: 2rem 0;
+    }
+
+    .success.visible {
+      display: block;
+    }
+
+    .success p {
+      font-size: 0.85rem;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+    footer {
+      padding: 0.75rem 2rem 1rem;
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding-top: 4rem;
+      }
+
+      h1 {
+        margin-bottom: 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>William Baker</h1>
+
+    <h2>Contact</h2>
+
+    <form id="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Tell me about your project"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit">
+        Send <span class="arrow">→</span>
+      </button>
+    </form>
+
+    <div class="success" id="success">
+      <p>Message sent</p>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> William Baker
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    const form = document.getElementById('form');
+    const success = document.getElementById('success');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const btn = form.querySelector('button');
+
+      btn.innerHTML = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          success.classList.add('visible');
+        } else {
+          btn.innerHTML = 'Try again <span class="arrow">→</span>';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.innerHTML = 'Try again <span class="arrow">→</span>';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
